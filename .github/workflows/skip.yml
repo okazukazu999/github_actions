@@ -2,7 +2,7 @@ on: push
 jobs:
   accept_commit:
     runs-on: ubuntu-20.04
-    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    if: "! contains(github.event.head_commit.message, 'skip mabl')"
     steps:
     - run: echo "build is NOT skipped"
   build:
