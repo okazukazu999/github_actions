@@ -1,10 +1,10 @@
 on: push
 jobs:
-  skip:
-    runs-on: ubuntu-20.04
-    if: "! contains(github.event.head_commit.message, 'skip mabl')"
-    steps:
-    - run: echo "E2E Test is NOT skipped"
+  # skip:
+  #  runs-on: ubuntu-20.04
+  #  if: "! contains(github.event.head_commit.message, 'skip mabl')"
+  #  steps:
+  #  - run: echo "E2E Test is NOT skipped"
   build:
     runs-on: ubuntu-20.04
     needs: accept_commit
