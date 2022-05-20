@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-20.04
     needs: accept_commit
     steps:
-      - run: 'echo hello'
+      - run: 'echo hello!'
