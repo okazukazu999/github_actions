@@ -20,8 +20,8 @@ jobs:
         with:
           payload: |
             {
-              "text": "requested",
-              "text2": "requested"
+              "key": "value",
+              "foo": "bar"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
