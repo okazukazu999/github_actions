@@ -30,7 +30,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
+                      "text": "Author: ${{ github.event.sender.login }}"
                     }
                   ]
                 },
