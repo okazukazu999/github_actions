@@ -33,7 +33,7 @@ jobs:
                       "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
                     }
                   ]
-                }
+                },
                 {
                   "type": "context",
                   "elements": [
