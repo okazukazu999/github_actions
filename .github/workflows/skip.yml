@@ -8,20 +8,17 @@ on:
   #  types: [closed]
 
 jobs:
-  build:
+  slack:
     runs-on: ubuntu-latest
-    #steps:
-      #- uses: actions/checkout@v2
-      #- name: Send GitHub Action trigger data to Slack workflow
-      # - uses: slackapi/slack-github-action@v1.19.0
-
     steps:
-      - uses: slackapi/slack-github-action@v1.19.0
-        with:
-          payload: |
-            {
-              "key": "value",
-              "foo": "bar"
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+    - name: Slack Workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.19.0
+      with:
+        payload: |
+          {
+            "key": "value",
+            "foo": "bar"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
