@@ -1,14 +1,16 @@
-name: Slack Pull Request Open Notification
+name: Slack Pull Request Close Notification
 
 on:
   pull_request:
+    branches:
+      - master
     types: [closed]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Notify slack pr open
+    - name: Notify slack pr close 
       env: 
         SLACK_WEBHOOK_URL : ${{ secrets.SLACK_WEBHOOK }}
         PULL_REQUEST_NUMBER : ${{ github.event.pull_request.number }}
@@ -25,6 +27,4 @@ jobs:
         MAKE_PRETTY : false
         MAKE_COMPACT : false
         IS_PR_FROM_FORK: false
-        SEND_USER_ID_MENTIONS : ABCDE12345,AAABBBCCCC
-        SEND_GROUP_ID_MENTIONS : GROUPIDDDD,GGGGROUPID
       uses: jun3453/slack-pr-open-notification-action@v1.3.0
