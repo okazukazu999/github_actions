@@ -39,7 +39,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "Author: ${{ github.event.pull_request.title }}"
+                      "text": "Repository: ${{ github.event.repository.url }}"
                     }
                   ]
                 }
