@@ -1,6 +1,8 @@
 name: Slack Notification
 on: pull_request:
-    branches: [ main ]
+    branches: 
+      - master
+    types: [closed]
 jobs:
   slackNotification:
     name: Slack Notification
