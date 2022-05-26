@@ -12,4 +12,4 @@ jobs:
         SLACK_CHANNEL: mabl
         SLACK_MESSAGE: test
         SLACK_TITLE: test
-        SLACK_WEBHOOK: 'https://hooks.slack.com/services/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'
+        SLACK_WEBHOOK: https://hooks.slack.com/services/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 
