@@ -1,5 +1,6 @@
-on: push
-name: Slack Notification Demo
+name: Slack Notification
+on: pull_request:
+    branches: [ main ]
 jobs:
   slackNotification:
     name: Slack Notification
