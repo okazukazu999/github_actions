@@ -27,3 +27,4 @@ jobs:
         MAKE_PRETTY : false
         MAKE_COMPACT : false
         IS_PR_FROM_FORK: false
+      uses: slackapi/slack-github-action@v1.19.0
