@@ -1,10 +1,11 @@
 name: Slack Pull Request Close Notification
 
 on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+  push:
+  #pull_request:
+  #  branches:
+  #    - master
+  #  types: [closed]
 
 jobs:
   build:
