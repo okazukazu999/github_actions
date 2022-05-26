@@ -1,5 +1,5 @@
-name: Slack Notification Demo
 on: push
+name: Slack Notification Demo
 jobs:
   slackNotification:
     name: Slack Notification
@@ -9,7 +9,4 @@ jobs:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_CHANNEL: mabl
-        SLACK_MESSAGE: test
-        SLACK_TITLE: test
-        SLACK_WEBHOOK_URL: "https://hooks.slack.com/services/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"
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
