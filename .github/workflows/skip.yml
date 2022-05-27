@@ -15,35 +15,17 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged by ${{ github.event.sender.login }} ",
-              "blocks": [
+              "text": "Hello, Incoming Webhook!",
+              "attachments": [
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Pull request merged by ${{ github.event.sender.login }}\n\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Author: ${{ github.event.sender.login }}"
-                    }
-                  ]
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Repository: ${{ github.event.repository.url }}"
-                    }
-                  ]
+                  "color": "good",
+                  "title": "title",
+                  "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                  "text": "description"
                 }
               ]
             }
+
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
