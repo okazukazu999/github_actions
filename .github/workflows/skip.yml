@@ -24,6 +24,10 @@ jobs:
                   "author_name": "${{ github.actor }}",
                   "fields": [
                     {
+                      "title": "GitHub ISSUE",
+                      "value": "${{ github.event.issue.title }}"
+                    },
+                    {
                       "title": "GitHub Actions URL",
                       "value": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
                     },
