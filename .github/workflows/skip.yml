@@ -1,9 +1,9 @@
 name: Slack Notification
 #on: [push]
 on: pull_request:
-    branches: 
-      - master
-    types: [closed]
+  branches: 
+    - master
+  types: [closed]
 
 jobs:
   build:
