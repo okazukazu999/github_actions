@@ -1,8 +1,7 @@
-name: Slack Pull Request Close Notification
-
-on:
-  pull_request:
-    branches:
+name: Slack Notification
+#on: [push]
+on: pull_request:
+    branches: 
       - master
     types: [closed]
 
@@ -10,33 +9,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Send GitHub Action trigger data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.19.0
-        with:
-          payload: |
+
+
+    - name: Send GitHub Action trigger data to Slack workflow 
+      id: slack
+      uses: slackapi/slack-github-action@v1.19.0
+      with:
+        payload: |
             {
-              "text": ":github: ビルド結果: ${{ job.status }}\n\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
-              "blocks": [
+              "text": "${{ github.event_name }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "attachments": [
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": ":github: ビルド結果: ${{ job.status }}\n\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
-                },
-                {
-                  "type": "context",
-                  "elements": [
+                  "color": "good",
+                  "author_name": "${{ github.actor }}",
+                  "fields": [
                     {
-                      "type": "mrkdwn",
-                      "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
+                      "title": "GitHub ISSUE",
+                      "value": "${{ github.event.issue.title }}"
+                    },
+                    {
+                      "title": "GitHub Actions URL",
+                      "value": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                    },
+                    {
+                      "title": "Compare URL",
+                      "value": "${{ github.event.compare }}"
                     }
-                  ]
+                  ],
+                  "footer": "${{ github.event.repository.url }}"
                 }
               ]
             }
 
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
