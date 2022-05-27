@@ -33,12 +33,10 @@ jobs:
                       "title": "Compare URL",
                       "value": "${{ github.event.compare }}"
                     }
-                  ]
+                  ],
+                  "footer": "Send from Python"
                 }
               ]
-              "footer": "Send from Python",
-              "footer_icon": "https://avatars1.githubusercontent.com/u/10055293?v=3&u=1d1491fc3c27e10e93cc364ee0556a3b768c29b2&s=100",
-              "ts": "1498894191",
             }
 
       env:
