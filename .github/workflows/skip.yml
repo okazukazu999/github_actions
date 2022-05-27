@@ -15,12 +15,11 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged by ${{ github.event.sender.login }}",
+              "text": "${{ github.event_name }} merged by ${{ github.event.sender.login }}",
               "attachments": [
                 {
                   "color": "good",
                   "author_name": "${{ github.actor }}",
-                  "author_icon": "${{ github.event.sender.avatar_url }}",
                   "fields": [
                     {
                       "title": "Commit Message",
