@@ -32,7 +32,7 @@ jobs:
                       "value": "${{ github.event.compare }}"
                     }
                   ],
-                  "footer": ${{ github.event.repository.url }}"
+                  "footer": "${{ github.event.repository.url }}"
                 }
               ]
             }
