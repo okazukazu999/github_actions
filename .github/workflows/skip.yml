@@ -28,10 +28,10 @@ jobs:
               "text": "Pull request merged to ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
               "attachments": [
                 {
-                  "color": "good",
+                  "color": "#0000cd",
                   "fields": [
                     {
-                      "title": "GitHub ISSUE",
+                      # "title": "GitHub ISSUE",
                       "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
