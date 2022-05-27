@@ -29,7 +29,7 @@ jobs:
                     },
                     {
                       "title": "ISSUE_LINK",
-                      "value": "${{ github.event.issue.html_url  }}"
+                      "value": "${{ github.event.issue.html_url }}"
                     },
                     {
                       "title": "GitHub Actions URL",
