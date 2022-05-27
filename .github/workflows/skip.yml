@@ -25,6 +25,9 @@ jobs:
       run: |
         id=$(echo ${{github.event.client_payload.value}} | cut -d- -f2)
         echo "::set-output name=id::$id"
+
+    - name: check current date and time
+
       run: echo "${{steps.get-id.outputs.id}}" 
 
 
