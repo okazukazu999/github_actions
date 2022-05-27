@@ -13,7 +13,9 @@ jobs:
     - name: Set current datetime as env variable
       env:
         TZ: 'Asia/Tokyo' 
-      run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M')"
+
 
     - name: Send GitHub Action trigger data to Slack workflow 
       id: slack
@@ -42,7 +44,7 @@ jobs:
                   ],
                   "footer": "Send from Python",
                   "footer_icon": "https://avatars1.githubusercontent.com/u/10055293?v=3&u=1d1491fc3c27e10e93cc364ee0556a3b768c29b2&s=100",
-                  "ts": "${{ env.CURRENT_DATETIME }}"
+                  "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
             }
