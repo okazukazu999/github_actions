@@ -22,10 +22,6 @@ jobs:
                   "author_name": "${{ github.actor }}",
                   "fields": [
                     {
-                      "title": "Job ID",
-                      "value": "${{ github.job }}"
-                    },
-                    {
                       "title": "Commit Message",
                       "value": "${{ env.COMMIT_MESSAGE }}"
                     },
@@ -40,6 +36,9 @@ jobs:
                   ]
                 }
               ]
+              "footer": "Send from Python",
+              "footer_icon": "https://avatars1.githubusercontent.com/u/10055293?v=3&u=1d1491fc3c27e10e93cc364ee0556a3b768c29b2&s=100",
+              "ts": "1498894191",
             }
 
       env:
