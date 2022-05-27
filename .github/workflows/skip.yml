@@ -22,6 +22,10 @@ jobs:
                   "author_name": "${{ github.actor }}",
                   "fields": [
                     {
+                      "title": "Job ID",
+                      "value": "${{ github.job }}"
+                    },
+                    {
                       "title": "Commit Message",
                       "value": "${{ env.COMMIT_MESSAGE }}"
                     },
