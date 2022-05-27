@@ -20,15 +20,14 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%s')"
 
-    - name: Get current date and time
-      id: get-id
-      run: |
-        id=$(echo ${{github.event.repository.html_url}} | cut -d- -f2)
-        echo "::set-output name=id::$id"
+    #- name: Get current date and time
+    #  id: get-id
+    #  run: |
+    #    id=$(echo ${{github.event.repository.html_url}} | cut -d- -f2)
+    #    echo "::set-output name=id::$id"
 
-    - name: check current date and time
-
-      run: echo "${{steps.get-id.outputs.id}}" 
+    #- name: check current date and time
+    #  run: echo "${{steps.get-id.outputs.id}}" 
 
 
     - name: Send GitHub Action trigger data to Slack workflow 
@@ -46,7 +45,7 @@ jobs:
                       "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
-                  "footer": "<${{ github.event.repository.html_url }}|${{ github.event.repository.html_url }}>",
+                  "footer": "${{ github.event.repository.html_url }}",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
