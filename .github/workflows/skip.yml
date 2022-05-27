@@ -25,7 +25,7 @@ jobs:
       with:
         payload: |
             {
-              "text": "${{ github.event_name }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "text": "Pull request merged by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
               "attachments": [
                 {
                   "color": "good",
@@ -33,15 +33,7 @@ jobs:
                   "fields": [
                     {
                       "title": "GitHub ISSUE",
-                      "value": "${{ github.event.issue.title }}"
-                    },
-                    {
-                      "title": "GitHub Actions URL",
-                      "value": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
-                    },
-                    {
-                      "title": "Compare URL",
-                      "value": "${{ github.event.compare }}"
+                      "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
                   "footer": "${{ github.event.repository.url }}",
