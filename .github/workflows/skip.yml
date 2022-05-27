@@ -36,7 +36,7 @@ jobs:
                       "value": "${{ github.event.compare }}"
                     }
                   ],
-                  "footer": "${{ github.event.sender.login }}"
+                  "footer": "${{ github.event.sender.login }}/${{ github.event_path }}"
                 }
               ]
             }
