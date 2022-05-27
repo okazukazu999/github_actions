@@ -34,7 +34,7 @@ jobs:
                       "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
-                  "footer": "${{ github.event.repository.url }}",
+                  "footer": "${{ github.event.repository.html_url }}",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
