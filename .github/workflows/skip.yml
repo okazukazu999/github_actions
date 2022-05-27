@@ -1,10 +1,11 @@
 name: Slack Notification
 
-on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+on: push
+#on:
+#  pull_request:
+#    branches:
+#      - master
+#    types: [closed]
 
 jobs:
   build:
@@ -19,13 +20,21 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%s')"
 
+    - name: Get current date and time
+      id: get-id
+      run: |
+        id=$(echo ${{github.event.client_payload.value}} | cut -d- -f2)
+        echo "::set-output name=id::$id"
+      run: echo "${{steps.get-id.outputs.id}}" 
+
+
     - name: Send GitHub Action trigger data to Slack workflow 
       id: slack
       uses: slackapi/slack-github-action@v1.19.0
       with:
         payload: |
             {
-              "text": "Pull request merged to ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
               "attachments": [
                 {
                   "color": "good",
