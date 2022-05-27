@@ -15,13 +15,9 @@ jobs:
 
     - name: Get current date and time
       env: 
-        TZ: "Asia/Tokyo" # タイムゾーンを指定
+        TZ: "Asia/Tokyo" 
       id: date
-      # run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M')"
       run: echo "::set-output name=date::$(date +'%s')"
-
-    - name: Show date and time
-      run: echo ${{ steps.date.outputs.date }} # 2022-01-03 10:42
 
     - name: Send GitHub Action trigger data to Slack workflow 
       id: slack
