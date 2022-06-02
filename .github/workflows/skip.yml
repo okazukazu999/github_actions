@@ -20,16 +20,6 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%s')"
 
-    #- name: Get current date and time
-    #  id: get-id
-    #  run: |
-    #    id=$(echo ${{github.event.repository.html_url}} | cut -d- -f2)
-    #    echo "::set-output name=id::$id"
-
-    #- name: check current date and time
-    #  run: echo "${{steps.get-id.outputs.id}}" 
-
-
     - name: Send GitHub Action trigger data to Slack workflow 
       id: slack
       uses: slackapi/slack-github-action@v1.19.0
