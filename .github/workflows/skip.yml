@@ -20,7 +20,6 @@ jobs:
       with:
         result-encoding: string
         script: |
-          #return "This is string"
           return "${{ github.event.sender.login}}"
 
     - name: Get current date and time
