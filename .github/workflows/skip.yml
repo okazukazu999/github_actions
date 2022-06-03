@@ -45,7 +45,7 @@ jobs:
                       "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
-                  "footer": "<${{ steps.repogitory_url.outputs.result }}|${{ github.event.repository.html_url }}>",
+                  "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
