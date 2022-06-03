@@ -23,7 +23,7 @@ jobs:
           const url = "${{ github.event.repository.html_url }}"
           return url.replace('https://', '')
 
-    - name: Get PR No
+    - name: Get PullRequest no
       uses: actions/github-script@v2
       id: pr_no
       with:
@@ -53,7 +53,7 @@ jobs:
                   "color": "good",
                   "fields": [
                     {
-                      "value": "${{ github.event.pull_request.html_url }}"
+                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }}>"
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
