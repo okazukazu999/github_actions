@@ -54,4 +54,3 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-        RETURN_VALUE_AS_STRING: ${{ toJson(steps.return_value_as_string.outputs.result) }}
