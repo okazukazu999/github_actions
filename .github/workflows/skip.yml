@@ -20,8 +20,8 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const p = github.event.repository.html_url
-          return "${{ p }}"
+          const url = github.event.repository.html_url
+          return url
  
     - name: Get current date and time
       env: 
