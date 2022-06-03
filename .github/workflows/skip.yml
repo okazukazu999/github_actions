@@ -56,7 +56,7 @@ jobs:
                       "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }}>"
                     }
                   ],
-                  "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
+                  "footer": "<${{ github.event.repository.html_url }}|${{ github.event.pull_request.title }}>",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
