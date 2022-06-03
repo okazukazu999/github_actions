@@ -34,7 +34,7 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>  ${{ RETURN_VALUE_AS_STRING }}",
               "author_icon": "${{ github.event.sender.avatar_url }}",
               "attachments": [
                 {
@@ -53,3 +53,4 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        RETURN_VALUE_AS_STRING: ${{ toJson(steps.return_value_as_string.outputs.result) }}
