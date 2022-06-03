@@ -31,7 +31,7 @@ jobs:
         script: |
           const url = "${{ github.event.pull_request.html_url }}"
           const arr =  url.split('/')
-          return arr[arr.length -1]
+          return '#'+ arr[arr.length -2] + '/' + arr[arr.length -1]
 
  
     - name: Get current date and time
