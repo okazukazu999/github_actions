@@ -14,9 +14,9 @@ jobs:
 
 
 
-    - name: Return value as string
+    - name: Return Repogitory Url 
       uses: actions/github-script@v2
-      id: return_value_as_string
+      id: repogitory_url 
       with:
         result-encoding: string
         script: |
@@ -35,7 +35,7 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>  ${{ steps.return_value_as_string.outputs.result }}",
+              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>  ${{ steps.repogitory_url.outputs.result }}",
               "author_icon": "${{ github.event.sender.avatar_url }}",
               "attachments": [
                 {
