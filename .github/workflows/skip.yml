@@ -20,7 +20,7 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const p = "${{  github.event.repository.html_url }}"
+          const p = github.event.repository.html_url
           return "${{ p }}"
  
     - name: Get current date and time
