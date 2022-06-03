@@ -20,8 +20,9 @@ jobs:
       with:
         result-encoding: string
         script: |
-          return "${{  github.event.repository.html_url }}"
-
+          p = "${{  github.event.repository.html_url }}"
+          return "${{ p }}"
+ 
     - name: Get current date and time
       env: 
         TZ: "Asia/Tokyo" 
