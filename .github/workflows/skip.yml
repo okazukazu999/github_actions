@@ -14,7 +14,7 @@ jobs:
 
 
 
-    - name: Return Repogitory Url 
+    - name: Get repogitory url 
       uses: actions/github-script@v2
       id: repogitory_url 
       with:
@@ -45,7 +45,7 @@ jobs:
                       "value": "${{ github.event.pull_request.html_url }}"
                     }
                   ],
-                  "footer": "${{ github.event.repository.html_url }}",
+                  "footer": "<${{ steps.repogitory_url.outputs.result }}|${{ github.event.repository.html_url }}>",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
