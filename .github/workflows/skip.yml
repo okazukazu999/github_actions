@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-
-
     - name: Get repogitory url 
       uses: actions/github-script@v2
       id: repogitory_url 
@@ -31,10 +29,10 @@ jobs:
         script: |
           const url = "${{ github.event.pull_request.html_url }}"
           const arr =  url.split('/')
-          return '#'+ arr[arr.length -2] + '/' + arr[arr.length -1]
+          return '#' + arr[arr.length -1]
 
  
-    - name: Get current date and time
+    - name: Get current datetime
       env: 
         TZ: "Asia/Tokyo" 
       id: date
@@ -53,10 +51,10 @@ jobs:
                   "color": "good",
                   "fields": [
                     {
-                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }}>"
+                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }}${{ github.event.pull_request.title}}>"
                     }
                   ],
-                  "footer": "<${{ github.event.repository.html_url }}|${{ github.event.pull_request.title }}>",
+                  "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
                   "ts": "${{ steps.date.outputs.date }}"
                 }
               ]
