@@ -34,7 +34,7 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>  ${{ RETURN_VALUE_AS_STRING }}",
+              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>  RETURN_VALUE_AS_STRING ",
               "author_icon": "${{ github.event.sender.avatar_url }}",
               "attachments": [
                 {
