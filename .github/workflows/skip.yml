@@ -36,8 +36,11 @@ jobs:
       env: 
         TZ: "Asia/Tokyo" 
       id: date
+      with:
+        result-encoding: string
+        script: |
       # run: echo "::set-output name=date::$(date +'%s')"
-      return "${{ date +'%s' }}"
+          return "${{ date +'%s' }}"
 
     - name: Send GitHub Action 
       id: slack
