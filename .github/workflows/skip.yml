@@ -1,11 +1,11 @@
 name: Slack Notification
 
-#on: push 
-on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+on: push 
+#on:
+#  pull_request:
+#    branches:
+#      - master
+#    types: [closed]
 
 jobs:
   build:
@@ -36,7 +36,8 @@ jobs:
       env: 
         TZ: "Asia/Tokyo" 
       id: date
-      run: echo "::set-output name=date::$(date +'%s')"
+      # run: echo "::set-output name=date::$(date +'%s')"
+      return "::set-output name=date::$(date +'%s')"
 
     - name: Send GitHub Action 
       id: slack
@@ -54,7 +55,7 @@ jobs:
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
-                  "ts": "${{ steps.date.outputs.date }}"
+                  "ts": "${{ steps.date.outputs.result }}"
                 }
               ]
             }
