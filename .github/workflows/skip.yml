@@ -33,6 +33,7 @@ jobs:
 
  
     - name: Get current datetime
+      uses: actions/github-script@v2
       env: 
         TZ: "Asia/Tokyo" 
       id: date
