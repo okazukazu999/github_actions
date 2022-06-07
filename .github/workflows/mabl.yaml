@@ -1,4 +1,4 @@
-name: Slack Notification
+name: mabl
 
 # on: push  
 on:
