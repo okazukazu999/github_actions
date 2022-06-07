@@ -9,58 +9,57 @@ on:
 
 jobs:
 
-  if_merged:
+  build:
     if: github.event.pull_request.merged == true
-    build:
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
 
-      - name: Get repogitory url 
-        uses: actions/github-script@v2
-        id: repogitory_url 
-        with:
-          result-encoding: string
-          script: |
-            const url = "${{ github.event.repository.html_url }}"
-            return url.replace('https://', '')
+    - name: Get repogitory url 
+      uses: actions/github-script@v2
+      id: repogitory_url 
+      with:
+        result-encoding: string
+        script: |
+          const url = "${{ github.event.repository.html_url }}"
+          return url.replace('https://', '')
 
-      - name: Get PullRequest no
-        uses: actions/github-script@v2
-        id: pr_no
-        with:
-          result-encoding: string
-          script: |
-            const url = "${{ github.event.pull_request.html_url }}"
-            const arr =  url.split('/')
-            return '#' + arr[arr.length -1]
+    - name: Get PullRequest no
+      uses: actions/github-script@v2
+      id: pr_no
+      with:
+        result-encoding: string
+        script: |
+          const url = "${{ github.event.pull_request.html_url }}"
+          const arr =  url.split('/')
+          return '#' + arr[arr.length -1]
 
 
-      - name: Get current datetime
-        env: 
-          TZ: "Asia/Tokyo" 
-        id: date
-        run: echo "::set-output name=date::$(date +'%s')"
+    - name: Get current datetime
+      env: 
+        TZ: "Asia/Tokyo" 
+      id: date
+      run: echo "::set-output name=date::$(date +'%s')"
 
-      - name: Send GitHub Action 
-        id: slack
-        uses: slackapi/slack-github-action@v1.19.0
-        with:
-          payload: |
-              {
-                "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
-                "attachments": [
-                  {
-                    "color": "good",
-                    "fields": [
-                      {
-                        "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }} ${{ github.event.pull_request.title}}>"
-                      }
-                    ],
-                    "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
-                    "ts": "${{ steps.date.outputs.date }}"
-                  }
-                ]
-              }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    - name: Send GitHub Action 
+      id: slack
+      uses: slackapi/slack-github-action@v1.19.0
+      with:
+        payload: |
+            {
+              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "attachments": [
+                {
+                  "color": "good",
+                  "fields": [
+                    {
+                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }} ${{ github.event.pull_request.title}}>"
+                    }
+                  ],
+                  "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
+                  "ts": "${{ steps.date.outputs.date }}"
+                }
+              ]
+            }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
