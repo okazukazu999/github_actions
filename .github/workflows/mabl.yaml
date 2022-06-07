@@ -13,5 +13,4 @@ jobs:
     if: ${{ ( github.event.pull_request.merged == true ) && ( !contains( github.event.pull_request.title, 'skip mabl' )) }} 
     runs-on: ubuntu-latest
     steps:
-      - run: echo "test"
- 
+      - run: echo "test2"
