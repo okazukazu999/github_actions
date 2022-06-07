@@ -22,7 +22,7 @@ jobs:
           result-encoding: string
           script: |
             const url = "${{ github.event.repository.html_url }}"
-        return url.replace('https://', '')
+          return url.replace('https://', '')
 
       - name: Get PullRequest no
         uses: actions/github-script@v2
