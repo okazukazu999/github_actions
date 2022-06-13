@@ -14,3 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - run: echo "test3"
+       - run: echo "test4"
