@@ -14,4 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - run: echo "test3"
+       if: ${{ github.actor != 'dependabot[bot]' }}
        - run: echo "test4"
