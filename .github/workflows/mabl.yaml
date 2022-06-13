@@ -13,6 +13,6 @@ jobs:
     if: ${{ ( github.event.pull_request.merged == true ) && ( !contains( github.event.pull_request.title, 'skip mabl' )) }} 
     runs-on: ubuntu-latest
     steps:
-       - run: echo "test3"
-       if: ${{ github.actor != 'dependabot[bot]' }} 
-       - run: echo "test4"
+      - run: echo "test3"
+      if: ${{ github.actor != 'dependabot[bot]' }} 
+      - run: echo "test4"
