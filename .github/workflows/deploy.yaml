@@ -1,0 +1,14 @@
+name: stage
+
+on:
+  push:
+
+concurrency: stage
+
+
+jobs:
+  deploy-dev:
+    run: echo "in deply.yaml"
+
+  call-mabl: 
+    uses: .github/workflows/mabl.yaml 
