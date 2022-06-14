@@ -7,6 +7,7 @@ concurrency: stage
 
 
 jobs:
+  runs-on: ubuntu-latest
   test: 
     steps:
       - name: test3
