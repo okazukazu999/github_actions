@@ -8,7 +8,7 @@ concurrency: stage
 
 jobs:
   deploy-dev:
-  run: echo "test3"
+    run: echo "test3"
 
   call-mabl: 
     uses: ./.github/workflows/mabl.yaml 
