@@ -10,8 +10,8 @@ jobs:
   test: 
     runs-on: ubuntu-latest
     steps:
-      - name: test3
-        run: echo "test3"
+      - name: test2
+        run: echo "test2"
 
   call-mabl: 
     uses: ./.github/workflows/mabl.yaml 
