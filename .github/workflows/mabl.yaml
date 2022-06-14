@@ -1,6 +1,7 @@
 name: mabl
 
-on: workflow_call:  
+on: 
+  workflow_call:
 #on:
 #  pull_request:
 #    branches:

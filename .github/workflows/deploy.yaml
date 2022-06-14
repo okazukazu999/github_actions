@@ -11,4 +11,4 @@ jobs:
     run: echo "in deply.yaml"
 
   call-mabl: 
-    uses: .github/workflows/mabl.yaml 
+    uses: ./.github/workflows/mabl.yaml 
