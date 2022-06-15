@@ -7,6 +7,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Get commit message
+      uses: actions/github-script@v2
+      id: commit_msg
+      with:
+        result-encoding: string
+        script: |
+          const msg = "${{ github.event.head_commit.message }}"
+          return msg[0] 
 
     - name: Get repogitory url 
       uses: actions/github-script@v2
@@ -35,7 +43,7 @@ jobs:
                   "color": "good",
                   "fields": [
                     {
-                      "value": "<${{ github.event.head_commit.url }}| ${{ github.event.head_commit.message }}>"
+                      "value": "<${{ github.event.head_commit.url }}| ${{ steps.repogitory_url.msg }}>"
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
