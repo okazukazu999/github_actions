@@ -13,8 +13,10 @@ jobs:
       - name: test2
         run: echo "test2"
 
+  test2: 
+    runs-on: ubuntu-latest
     steps:
-      - name: output test
+      - name: output test2
         run: echo ${{ github.event.inputs.env }}
 
   call-mabl:
