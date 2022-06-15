@@ -2,6 +2,8 @@ name: stage
 
 on:
   push:
+    branches:
+      - main
 
 concurrency: stage
 

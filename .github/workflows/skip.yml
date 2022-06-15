@@ -1,16 +1,10 @@
 name: Slack Notification
 
 on: push  
-#on:
-#  pull_request:
-#    branches:
-#      - master
-#    types: [closed]
 
 jobs:
 
   build:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
 
@@ -22,17 +16,6 @@ jobs:
         script: |
           const url = "${{ github.event.repository.html_url }}"
           return url.replace('https://', '')
-
-    - name: Get PullRequest no
-      uses: actions/github-script@v2
-      id: pr_no
-      with:
-        result-encoding: string
-        script: |
-          const url = "${{ github.event.pull_request.html_url }}"
-          const arr =  url.split('/')
-          return '#' + arr[arr.length -1]
-
 
     - name: Get current datetime
       env: 
@@ -46,13 +29,13 @@ jobs:
       with:
         payload: |
             {
-              "text": "Pull request merged ${{ steps.comment-branch.outputs.head_ref }} by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
+              "text": "Pull request merged by <https://github.com/${{ github.event.sender.login }}|${{ github.event.sender.login }}>",
               "attachments": [
                 {
                   "color": "good",
                   "fields": [
                     {
-                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }} ${{ github.event.event.head_commit_message }}>"
+                      "value": "<${{ github.event.head_commit.url }}| ${{ github.event.head_commit.message }}>"
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
