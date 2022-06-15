@@ -1,0 +1,24 @@
+name: stage
+
+on:
+  push:
+
+concurrency: stage
+
+
+jobs:
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: test2
+        run: echo "test2"
+
+  test2: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: output test2
+        run: echo "${{ github.event.inputs.env }}"
+
+  call-mabl:
+    needs: test 
+    uses: ./.github/workflows/mabl.yaml 

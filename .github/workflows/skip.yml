@@ -1,11 +1,11 @@
 name: Slack Notification
 
-# on: push  
-on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+on: push  
+#on:
+#  pull_request:
+#    branches:
+#      - master
+#    types: [closed]
 
 jobs:
 
@@ -52,7 +52,7 @@ jobs:
                   "color": "good",
                   "fields": [
                     {
-                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }} ${{ github.event.pull_request.title}}>"
+                      "value": "<${{ github.event.pull_request.html_url }}|${{ steps.pr_no.outputs.result }} ${{ github.event.event.head_commit_message }}>"
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
