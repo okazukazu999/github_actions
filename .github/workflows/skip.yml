@@ -14,7 +14,8 @@ jobs:
         result-encoding: string
         script: |
           const msg = "${{ github.event.head_commit.message }}"
-          return msg[0] 
+          run: echo msg
+          return msg 
 
     - name: Get repogitory url 
       uses: actions/github-script@v2
