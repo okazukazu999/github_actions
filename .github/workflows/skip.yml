@@ -20,7 +20,6 @@ jobs:
           const msg = ${{ toJson(github.event.head_commit.message) }} 
           return msg.replace(/\r?\n/g, '')
 
-
     - name: Get repogitory url 
       uses: actions/github-script@v2
       id: repogitory_url 
