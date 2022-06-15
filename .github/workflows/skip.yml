@@ -35,7 +35,9 @@ jobs:
                   "color": "good",
                   "fields": [
                     {
+
                       "value": "<${{ github.event.head_commit.url }}| ${{ github.event.head_commit.message }}>"
+
                     }
                   ],
                   "footer": "<${{ github.event.repository.html_url }}|${{ steps.repogitory_url.outputs.result }}>",
