@@ -12,7 +12,7 @@ jobs:
     steps:
 
     - name: Get commit message
-      uses: actions/github-script@v4
+      uses: actions/github-script@v5
       id: commit_msg
       with:
         result-encoding: string
@@ -23,7 +23,7 @@ jobs:
 
 
     - name: Get repogitory url 
-      uses: actions/github-script@v4
+      uses: actions/github-script@v5
       id: repogitory_url 
       with:
         result-encoding: string
