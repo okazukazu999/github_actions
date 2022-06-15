@@ -13,5 +13,6 @@ jobs:
       - name: test2
         run: echo "test2"
 
-  call-mabl: 
+  call-mabl:
+    needs: test 
     uses: ./.github/workflows/mabl.yaml 
