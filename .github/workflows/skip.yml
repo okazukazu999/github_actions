@@ -11,9 +11,9 @@ jobs:
       uses: actions/github-script@v2
       id: commit_msg
       with:
-        result-encoding: string
+        result-encoding: json 
         script: |
-          const msg = "JSON.parse(${{ github.event.head_commit.message }})"
+          const msg = JSON.parse(${{ github.event.head_commit.message }})
           run: echo msg
           return msg 
 
