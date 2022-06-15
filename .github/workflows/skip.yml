@@ -18,6 +18,7 @@ jobs:
         result-encoding: string
         script: |
           const msg = ${{ toJson(github.event.head_commit.message) }} 
+          echo msg
           return msg.replace(/\r?\n/g, '')
 
 
