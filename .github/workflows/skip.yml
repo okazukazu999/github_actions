@@ -17,7 +17,7 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const msg = "$(echo ${{ github.event.head_commit.message }} | tr '\n' ' ')"
+          const msg = ${{ toJson(github.event.head_commit.message) }} 
           return msg
 
 
