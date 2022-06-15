@@ -13,6 +13,10 @@ jobs:
       - name: test2
         run: echo "test2"
 
+    steps:
+      - name: output test
+        run: echo ${{ github.event.inputs.env }}
+
   call-mabl:
     needs: test 
     uses: ./.github/workflows/mabl.yaml 
