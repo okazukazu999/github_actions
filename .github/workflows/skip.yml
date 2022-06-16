@@ -2,8 +2,8 @@ name: Slack Notification
 
 on:
   push:
-    branches:
-      - master
+    #branches:
+    #  - master
 
 jobs:
 
@@ -17,10 +17,8 @@ jobs:
       with:
         result-encoding: string
         script: |
-          #const msg = ${{ toJson(github.event.head_commit.message) }} 
           const msg = ${{ JSON.stringify(github.event.head_commit.message) }}
           return msg.replace(/\r?\n/g, ' ')
-
 
 
     - name: Get repogitory url 
