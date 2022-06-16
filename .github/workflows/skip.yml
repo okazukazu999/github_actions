@@ -2,8 +2,8 @@ name: Slack Notification
 
 on:
   push:
-    #branches:
-    #  - master
+    branches:
+      - master
 
 jobs:
 
