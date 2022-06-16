@@ -21,7 +21,6 @@ jobs:
           return msg.replace(/\r?\n/g, ' ')
 
 
-
     - name: Get repogitory url 
       uses: actions/github-script@v5
       id: repogitory_url 
