@@ -17,8 +17,11 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const msg = ${{ toJson(github.event.head_commit.message) }} 
-          return msg.replace(/\r?\n/g, ' ')
+
+          const tmp = ${{ toJson(github.event.head_commit.message) }} 
+          const tmp2 = tmp.replace(/\r?\n/g, '?')
+          const msg = tmp2.split('?')
+          return msg[0]
 
 
     - name: Get repogitory url 
