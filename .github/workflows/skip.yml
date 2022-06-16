@@ -2,8 +2,8 @@ name: Slack Notification
 
 on:
   push:
-  #  branches:
-  #    - master
+    branches:
+      - master
 
 jobs:
 
@@ -18,7 +18,7 @@ jobs:
         result-encoding: string
         script: |
           const msg = ${{ toJson(github.event.head_commit.message) }} 
-          return msg.replace(/\r?\n/g, '')
+          return msg.replace(/\r?\n/g, ' ')
 
 
 
