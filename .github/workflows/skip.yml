@@ -17,8 +17,9 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const msg = ${{ JSON.stringify(github.event.head_commit.message) }}
-          return msg.replace(/\r?\n/g, ' ')
+          const msg = ${{ github.event.head_commit.message }}
+          console.log(result)
+          return msg
 
 
     - name: Get repogitory url 
