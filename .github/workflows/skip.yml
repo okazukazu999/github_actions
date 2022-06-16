@@ -19,8 +19,8 @@ jobs:
         script: |
 
           const tmp = ${{ toJson(github.event.head_commit.message) }} 
-          const tmp2 = tmp.replace(/\r?\n/g, '?')
-          const msg = tmp2.split('?')
+          const tmp2 = tmp.replace(/\r?\n/g, '\n')
+          const msg = tmp2.split('\n')
           return msg[0]
 
 
