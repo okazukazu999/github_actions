@@ -17,7 +17,7 @@ jobs:
       with:
         result-encoding: string
         script: |
-          const msg = ${{ toJson(github.event.head_commit.message) }} 
+          const msg = ${{ github.event.head_commit.message }} 
           const msg_str = msg.replace(/\r?\n/g, '\n')
           const commit_msg = msg_str.split('\n')
           return commit_msg[0]
